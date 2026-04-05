@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+body{
+  font-family: 'Poppins', sans-serif;
+  background: #f5f9ff;
+}
+
+.sidebar{
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: linear-gradient(180deg,#001f4d,#003d99,#0b5cff);
+  color: white;
+  padding: 20px;
+}
+
+.sidebar h3{
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.sidebar a{
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 12px 15px;
+  border-radius: 14px;
+  margin-top: 8px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.sidebar a:hover{
+  background: rgba(255,255,255,0.20);
+}
+
+.sidebar a.active{
+  background: rgba(255,255,255,0.25);
+}
+
+.main-content{
+  margin-left: 270px;
+  padding: 25px;
+}
+
+.topbar{
+  background: white;
+  border-radius: 18px;
+  padding: 14px 20px;
+  box-shadow: 0px 10px 25px rgba(0,0,0,0.10);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topbar h4{
+  font-weight: 800;
+  color: #001f4d;
+  margin: 0;
+}
+
+.profile-badge{
+  background: linear-gradient(90deg,#d4af37,#ffd700);
+  padding: 8px 14px;
+  border-radius: 14px;
+  font-weight: 800;
+  color: black;
+}
+
+.card-box{
+  background: white;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0px 10px 25px rgba(0,0,0,0.10);
+  transition: 0.3s;
+}
+
+.card-box:hover{
+  transform: translateY(-6px);
+  box-shadow: 0px 15px 35px rgba(0,0,0,0.15);
+}
+
+.card-box h5{
+  font-weight: 800;
+  color: #001f4d;
+}
+
+.big-number{
+  font-size: 30px;
+  font-weight: 900;
+  color: #0b5cff;
+}
+
+.btn-premium{
+  background: linear-gradient(90deg,#d4af37,#ffd700);
+  color: black;
+  font-weight: 800;
+  border-radius: 14px;
+  padding: 12px 18px;
+  border: none;
+}
+
+.btn-premium:hover{
+  opacity: 0.9;
+}
+
+.btn-blue{
+  background: #0b5cff;
+  color: white;
+  font-weight: 800;
+  border-radius: 14px;
+  padding: 12px 18px;
+  border: none;
+}
+
+.btn-blue:hover{
+  opacity: 0.9;
+  color: white;
+}
+
+.table-premium{
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0px 10px 25px rgba(0,0,0,0.10);
+}
+
+.table-premium th{
+  background: #001f4d;
+  color: white;
+  font-weight: 800;
+  padding: 14px;
+}
+
+.table-premium td{
+  padding: 12px;
+  font-weight: 600;
+}
+
+.status-badge{
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.status-green{background:#d4edda;color:#155724;}
+.status-red{background:#f8d7da;color:#721c24;}
+.status-yellow{background:#fff3cd;color:#856404;}
+.status-blue{background:#d1ecf1;color:#0c5460;}
+
+@media(max-width: 900px){
+  .sidebar{
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .main-content{
+    margin-left: 0;
+  }
+}
