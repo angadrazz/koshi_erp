@@ -24,7 +24,7 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
   <div class="container">
-    <a class="navbar-brand" href="https://angadrazz.github.io/Koshi-Institute-of-Higher-Education/">
+    <a class="navbar-brand" target="_blank" href="https://angadrazz.github.io/Koshi-Institute-of-Higher-Education/">
       <i class="fa-solid fa-graduation-cap"></i> KOSHI INSTITUTE
     </a>
 
