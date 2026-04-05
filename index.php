@@ -40,7 +40,7 @@
         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
 
         <li class="nav-item">
-          <a class="btn btn-warning ms-2 fw-bold" href="register.php">
+          <a class="btn btn-warning ms-2 fw-bold" href="./franchise/register.php">
             Apply Admission
           </a>
         </li>
