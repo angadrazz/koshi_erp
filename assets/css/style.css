@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+body{
+  font-family: 'Poppins', sans-serif;
+  background: #f5f9ff;
+}
+
+.navbar-brand{
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+}
+
+.hero{
+  background: linear-gradient(135deg,#001f4d,#003d99,#0b5cff);
+  color: white;
+  padding: 90px 0;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+.hero h1{
+  font-weight: 800;
+  font-size: 46px;
+}
+
+.hero p{
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+.btn-premium{
+  background: linear-gradient(90deg,#d4af37,#ffd700);
+  color: black;
+  font-weight: 700;
+  border-radius: 14px;
+  padding: 12px 20px;
+  border: none;
+}
+
+.btn-premium:hover{
+  opacity: 0.9;
+}
+
+.card-premium{
+  border-radius: 18px;
+  border: none;
+  box-shadow: 0px 10px 25px rgba(0,0,0,0.10);
+  transition: 0.3s;
+}
+
+.card-premium:hover{
+  transform: translateY(-6px);
+  box-shadow: 0px 15px 35px rgba(0,0,0,0.15);
+}
+
+.section-title{
+  font-weight: 800;
+  color: #001f4d;
+}
+
+.badge-premium{
+  background: linear-gradient(90deg,#d4af37,#ffd700);
+  color: black;
+  font-weight: 700;
+  padding: 7px 12px;
+  border-radius: 10px;
+}
+
+.footer{
+  background:#001f4d;
+  color:white;
+  padding:40px 0;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+}
+
+.footer a{
+  color:#ffd700;
+  text-decoration:none;
+}
+
+.footer a:hover{
+  text-decoration:underline;
+}
+
+.dashboard-box{
+  background:white;
+  padding:20px;
+  border-radius:18px;
+  box-shadow:0px 10px 25px rgba(0,0,0,0.10);
+}
+
+.dashboard-box h4{
+  font-weight:700;
+  color:#001f4d;
+}
+
+.dashboard-icon{
+  font-size:32px;
+  color:#0b5cff;
+}
