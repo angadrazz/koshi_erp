@@ -24,7 +24,7 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
   <div class="container">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="https://angadrazz.github.io/Koshi-Institute-of-Higher-Education/">
       <i class="fa-solid fa-graduation-cap"></i> KOSHI INSTITUTE
     </a>
 
@@ -41,13 +41,28 @@
 
         <li class="nav-item">
           <a class="btn btn-warning ms-2 fw-bold" href="./franchise/register.php">
-            Apply Admission
+            Apply Franchise
           </a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+
+<!-- NOTICE BAR -->
+<div class="notice-bar">
+  <div class="container d-flex align-items-center">
+
+    <span class="notice-label">
+      <i class="fa-solid fa-bullhorn"></i> NOTICE
+    </span>
+
+    <marquee behavior="scroll" direction="left" scrollamount="6" class="notice-text">
+      🎓 Admission Open 2026 | 💻 New Computer Courses Launched | 📜 Certificate Verification Available Online | 🤝 Franchise Apply Now | 📢 Limited Seats – Apply Today! | if you have any queries, feel free to call 📞 9122552662 | 9431496862 
+    </marquee>
+
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="hero text-center">
@@ -63,7 +78,7 @@
     </p>
 
     <div class="mt-4" data-aos="zoom-in" data-aos-delay="400">
-      <a href="register.php" class="btn btn-premium me-2">
+      <a href="online admission/admission.php" class="btn btn-premium me-2">
         <i class="fa-solid fa-pen-to-square"></i> Online Admission
       </a>
 
@@ -107,7 +122,7 @@
         <div class="card card-premium p-4">
           <i class="fa-solid fa-user-shield fa-2x text-danger"></i>
           <h5 class="mt-3 fw-bold">Admin Login</h5>
-          <a href="admin/login.php" class="btn btn-danger mt-2">Login</a>
+          <a href="./admin/login.php" class="btn btn-danger mt-2">Login</a>
         </div>
       </div>
 
@@ -166,6 +181,10 @@
       <div class="col-md-3" data-aos="zoom-in"><img src="assets/images/g2.jpg" class="img-fluid rounded-4 shadow"></div>
       <div class="col-md-3" data-aos="zoom-in"><img src="assets/images/g3.jpg" class="img-fluid rounded-4 shadow"></div>
       <div class="col-md-3" data-aos="zoom-in"><img src="assets/images/g4.jpg" class="img-fluid rounded-4 shadow"></div>
+      <div class="col-md-3" data-aos="zoom-in"><img src="assets/images/g5.jpg" class="img-fluid rounded-4 shadow"></div>
+      <div class="col-md-3" data-aos="zoom-in"><img src="assets/images/g6.jpg" class="img-fluid rounded-4 shadow"></div>
+      <div class="col-md-3" data-aos="zoom-in"><img src="assets/images/g7.jpg" class="img-fluid rounded-4 shadow"></div>
+      <div class="col-md-3" data-aos="zoom-in"><img src="assets/images/g8.jpg" class="img-fluid rounded-4 shadow"></div>
     </div>
   </div>
 </section>
@@ -236,10 +255,14 @@
     </div>
 
     <div class="text-center mt-4">
-      <a class="btn btn-success fw-bold" target="_blank" href="https://wa.me/919999999999">
-        <i class="fa-brands fa-whatsapp"></i> WhatsApp Admission Help
-      </a>
-    </div>
+  <a class="btn btn-success fw-bold" target="_blank" href="https://wa.me/919122552662">
+    <i class="fa-brands fa-whatsapp"></i> WhatsApp Admission Help
+  </a>
+
+  <p class="mt-2 fw-bold">
+   if you have any queries, feel free to call 📞 9122552662 | 9431496862
+  </p>
+</div>
 
   </div>
 </section>
@@ -250,7 +273,7 @@
     <h5 class="fw-bold">Koshi Institute of Higher Education</h5>
     <p class="mb-1">(A Unit of Koshi Shiksha Private Limited)</p>
     <p class="small">
-      ISO 9001:2015 Certified | MSME Registered | Companies Act 2013 (MCA)
+      An ISO 9001:2015 Certified Institute | MSME Registered Organization | Registered under Companies Act 2013 (MCA)
     </p>
 
     <p class="mt-3">
