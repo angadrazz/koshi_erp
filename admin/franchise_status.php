@@ -11,27 +11,27 @@ if(!isset($_SESSION['admin'])){
 $id = $_GET['id'];
 $status = $_GET['status'];
 
-$res = $conn->query("SELECT * FROM students WHERE id='$id'");
+$res = $conn->query("SELECT * FROM franchise WHERE id='$id'");
 $row = $res->fetch_assoc();
 
-$conn->query("UPDATE students SET admission_status='$status' WHERE id='$id'");
+$conn->query("UPDATE franchise SET status='$status' WHERE id='$id'");
 
 /* EMAIL NOTIFICATION */
 if($row['email']!=""){
-  $sub = "Admission Status Update - Koshi Institute";
+  $sub = "Franchise Application Status - Koshi Institute";
   $msg = "
-  <h2>Admission Status Updated</h2>
+  <h2>Franchise Status Updated</h2>
   <p>Hello <b>".$row['name']."</b>,</p>
-  <p>Your admission status has been updated to:</p>
+  <p>Your Franchise Application Status is:</p>
   <h3 style='color:green;'>".$status."</h3>
-  <p><b>Registration ID:</b> ".$row['reg_id']."</p>
-  <p>Login: https://koshiinstitute.org/student/login.php</p>
+  <p><b>Franchise ID:</b> ".$row['franchise_id']."</p>
+  <p>Login: https://koshiinstitute.org/franchise/login.php</p>
   <br>
   <p>Regards,<br>Koshi Institute of Higher Education</p>
   ";
   sendMail($row['email'],$sub,$msg);
 }
 
-header("Location: students.php");
+header("Location: franchise_list.php");
 exit();
 ?>

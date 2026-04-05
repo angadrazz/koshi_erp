@@ -6,6 +6,12 @@ if(!isset($_SESSION['admin'])){
   header("Location: login.php");
   exit();
 }
+
+// Fetch data safely
+$res = $conn->query("SELECT * FROM franchise ORDER BY id DESC");
+if(!$res){
+  die("Query Failed: " . $conn->error);
+}
 ?>
 
 <!DOCTYPE html>
@@ -42,28 +48,31 @@ if(!isset($_SESSION['admin'])){
   <th>Action</th>
 </tr>
 
-<?php
-$res = $conn->query("SELECT * FROM franchise ORDER BY id DESC");
-while($row = $res->fetch_assoc()){
+<?php while($row = $res->fetch_assoc()) { ?>
 
-  echo "<tr>
-    <td>".$row['franchise_id']."</td>
-    <td>".$row['name']."</td>
-    <td>".$row['mobile']."</td>
-    <td>".$row['email']."</td>
-    <td>".$row['city']."</td>
-    <td>".$row['district']."</td>
-    <td>".$row['state']."</td>
-    <td>".$row['commission_percent']."%</td>
-    <td>".$row['status']."</td>
+<tr>
+  <td><?= htmlspecialchars($row['franchise_id']) ?></td>
+  <td><?= htmlspecialchars($row['name']) ?></td>
+  <td><?= htmlspecialchars($row['mobile']) ?></td>
+  <td><?= htmlspecialchars($row['email']) ?></td>
+  <td><?= htmlspecialchars($row['city']) ?></td>
+  <td><?= htmlspecialchars($row['district']) ?></td>
+  <td><?= htmlspecialchars($row['state']) ?></td>
+  <td><?= htmlspecialchars($row['commission_percent']) ?>%</td>
+  <td><?= htmlspecialchars($row['status']) ?></td>
 
-    <td>
-      <a class='btn' href='franchise_status.php?id=".$row['id']."&status=Approved'>Approve</a>
-      <a class='btn red' href='franchise_status.php?id=".$row['id']."&status=Rejected'>Reject</a>
-    </td>
-  </tr>";
-}
-?>
+  <td>
+    <a class="btn" href="franchise_status.php?id=<?= urlencode($row['id']) ?>&status=Approved">Approve</a>
+
+    <a class="btn red" href="franchise_status.php?id=<?= urlencode($row['id']) ?>&status=Rejected">Reject</a>
+
+    <a class="btn" href="generate_franchise_certificate.php?id=<?= urlencode($row['id']) ?>">
+      Certificate
+    </a>
+  </td>
+</tr>
+
+<?php } ?>
 
 </table>
 

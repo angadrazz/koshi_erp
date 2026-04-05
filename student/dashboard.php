@@ -90,29 +90,37 @@ $row = $res->fetch_assoc();
 
     <div class="mt-3">
 
-      <?php if($row['receipt_no']!=""){ ?>
-        <a target="_blank" class="btn btn-blue" href="../receipt_pdf.php?reg=<?php echo $row['reg_id']; ?>">
-          <i class="fa-solid fa-file-pdf"></i> Receipt PDF
-        </a>
-      <?php } ?>
+  <?php if($row['receipt_no']!=""){ ?>
+    <a target="_blank" class="btn btn-blue" href="../receipt_pdf.php?reg=<?php echo $row['reg_id']; ?>">
+      <i class="fa-solid fa-file-pdf"></i> Receipt PDF
+    </a>
+  <?php } ?>
 
-      <?php if($row['certificate_no']!=""){ ?>
-        <a target="_blank" class="btn btn-success fw-bold" href="../certificate_pdf.php?reg=<?php echo $row['reg_id']; ?>">
-          <i class="fa-solid fa-award"></i> Certificate PDF
-        </a>
-      <?php } ?>
+  <?php if($row['certificate_no']!=""){ ?>
+    <a target="_blank" class="btn btn-success fw-bold" href="../certificate_pdf.php?reg=<?php echo $row['reg_id']; ?>">
+      <i class="fa-solid fa-award"></i> Certificate PDF
+    </a>
+  <?php } ?>
 
-      <a target="_blank" class="btn btn-warning fw-bold" href="../marksheet_pdf.php?reg=<?php echo $row['reg_id']; ?>">
-        <i class="fa-solid fa-book"></i> Marksheet PDF
-      </a>
+  <!-- ✅ NEW RECEIPT DOWNLOAD BUTTON -->
+  <?php if($row['receipt_no']!=""){ ?>
+    <a class="btn btn-purple fw-bold" target="_blank"
+       href="../receipt_pdf.php?reg=<?php echo $row['reg_id']; ?>">
+      <i class="fa-solid fa-download"></i> Download Payment Receipt
+    </a>
+  <?php } ?>
 
-      <?php if($row['idcard_status']=="Generated"){ ?>
-        <a target="_blank" class="btn btn-premium" href="../idcard_pdf.php?reg=<?php echo $row['reg_id']; ?>">
-          <i class="fa-solid fa-id-card"></i> ID Card PDF
-        </a>
-      <?php } ?>
+  <a target="_blank" class="btn btn-warning fw-bold" href="../marksheet_pdf.php?reg=<?php echo $row['reg_id']; ?>">
+    <i class="fa-solid fa-book"></i> Marksheet PDF
+  </a>
 
-    </div>
+  <?php if($row['idcard_status']=="Generated"){ ?>
+    <a target="_blank" class="btn btn-premium" href="../idcard_pdf.php?reg=<?php echo $row['reg_id']; ?>">
+      <i class="fa-solid fa-id-card"></i> ID Card PDF
+    </a>
+  <?php } ?>
+
+</div>
 
   </div>
 

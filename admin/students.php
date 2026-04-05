@@ -62,61 +62,86 @@ if(!isset($_SESSION['admin'])){
         </thead>
 
         <tbody>
-          <?php
-          $res = $conn->query("SELECT * FROM students ORDER BY id DESC");
-          while($row = $res->fetch_assoc()){
+<?php
+$res = $conn->query("SELECT * FROM students ORDER BY id DESC");
 
-            $admissionBadge = "status-yellow";
-            if($row['admission_status']=="Approved"){ $admissionBadge="status-green"; }
-            if($row['admission_status']=="Rejected"){ $admissionBadge="status-red"; }
+if(!$res){
+  die("Query Failed: " . $conn->error);
+}
 
-            $paymentBadge = "status-yellow";
-            if($row['payment_status']=="Paid"){ $paymentBadge="status-green"; }
+while($row = $res->fetch_assoc()){
 
-            echo "<tr>
-              <td>".$row['reg_id']."</td>
-              <td>".$row['name']."</td>
-              <td>".$row['mobile']."</td>
-              <td>".$row['course_code']."</td>
-              <td>".$row['university_code']."</td>
+  // Admission Status Badge
+  $admissionBadge = "status-yellow";
+  if($row['admission_status']=="Approved"){ $admissionBadge="status-green"; }
+  if($row['admission_status']=="Rejected"){ $admissionBadge="status-red"; }
 
-              <td><span class='status-badge $admissionBadge'>".$row['admission_status']."</span></td>
-              <td><span class='status-badge $paymentBadge'>".$row['payment_status']."</span></td>
+  // Payment Status Badge
+  $paymentBadge = "status-yellow";
+  if($row['payment_status']=="Paid"){ $paymentBadge="status-green"; }
+?>
+<tr>
 
-              <td><b>₹".$row['fee_paid']."</b></td>
-              <td>".$row['certificate_no']."</td>
-              <td>".$row['receipt_no']."</td>
+  <td><?= htmlspecialchars($row['reg_id']) ?></td>
+  <td><?= htmlspecialchars($row['name']) ?></td>
+  <td><?= htmlspecialchars($row['mobile']) ?></td>
+  <td><?= htmlspecialchars($row['course_code']) ?></td>
+  <td><?= htmlspecialchars($row['university_code']) ?></td>
 
-              <td style='min-width:280px;'>
-                <a class='btn btn-sm btn-success fw-bold' href='approve_student.php?id=".$row['id']."&status=Approved'>
-                  Approve
-                </a>
+  <td>
+    <span class="status-badge <?= $admissionBadge ?>">
+      <?= htmlspecialchars($row['admission_status']) ?>
+    </span>
+  </td>
 
-                <a class='btn btn-sm btn-danger fw-bold' href='approve_student.php?id=".$row['id']."&status=Rejected'>
-                  Reject
-                </a>
+  <td>
+    <span class="status-badge <?= $paymentBadge ?>">
+      <?= htmlspecialchars($row['payment_status']) ?>
+    </span>
+  </td>
 
-                <a class='btn btn-sm btn-warning fw-bold' href='update_fee.php?id=".$row['id']."'>
-                  Fee
-                </a>
+  <td><b>₹<?= htmlspecialchars($row['fee_paid']) ?></b></td>
+  <td><?= htmlspecialchars($row['certificate_no']) ?></td>
+  <td><?= htmlspecialchars($row['receipt_no']) ?></td>
 
-                <a class='btn btn-sm btn-primary fw-bold' href='marksheet_form.php?reg=".$row['reg_id']."'>
-                  Marksheet
-                </a>
+  <td style="min-width:320px;">
 
-                <a class='btn btn-sm btn-dark fw-bold' href='generate_certificate.php?id=".$row['id']."'>
-                  Certificate
-                </a>
+    <a class="btn btn-sm btn-success fw-bold"
+       href="approve_student.php?id=<?= urlencode($row['id']) ?>&status=Approved">
+       Approve
+    </a>
 
-                <a class='btn btn-sm btn-info fw-bold text-white' href='generate_idcard.php?reg=".$row['reg_id']."'>
-                  ID Card
-                </a>
+    <a class="btn btn-sm btn-danger fw-bold"
+       href="approve_student.php?id=<?= urlencode($row['id']) ?>&status=Rejected">
+       Reject
+    </a>
 
-              </td>
-            </tr>";
-          }
-          ?>
-        </tbody>
+    <!-- ✅ NEW FEE BUTTON -->
+    <a class="btn btn-sm btn-warning fw-bold"
+       href="update_fee.php?id=<?= urlencode($row['id']) ?>">
+       Fee
+    </a>
+
+    <a class="btn btn-sm btn-primary fw-bold"
+       href="marksheet_form.php?reg=<?= urlencode($row['reg_id']) ?>">
+       Marksheet
+    </a>
+
+    <a class="btn btn-sm btn-dark fw-bold"
+       href="generate_certificate.php?id=<?= urlencode($row['id']) ?>">
+       Certificate
+    </a>
+
+    <a class="btn btn-sm btn-info fw-bold text-white"
+       href="generate_idcard.php?reg=<?= urlencode($row['reg_id']) ?>">
+       ID Card
+    </a>
+
+  </td>
+
+</tr>
+<?php } ?>
+</tbody>
 
       </table>
     </div>

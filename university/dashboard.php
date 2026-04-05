@@ -20,59 +20,39 @@ $running = $conn->query("SELECT COUNT(*) as t FROM students WHERE university_cod
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <title>University Dashboard</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="../assets/dashboard/dashboard.css">
+  <style>
+    body{font-family:Arial;background:#f2f7ff;padding:20px;}
+    h2{text-align:center;color:#0b5cff;}
+    .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
+    .btn{padding:10px 15px;background:#0b5cff;color:white;text-decoration:none;border-radius:10px;font-weight:bold;}
+    .logout{background:red;}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;}
+    .card{background:white;padding:18px;border-radius:14px;box-shadow:0 10px 25px rgba(0,0,0,0.10);font-weight:bold;}
+    .card h3{margin:0;color:#0b5cff;}
+    .menu{text-align:center;margin-top:20px;}
+    .menu a{display:inline-block;margin:8px;padding:12px 15px;background:green;color:white;border-radius:12px;text-decoration:none;font-weight:bold;}
+    .menu a.blue{background:#0b5cff;}
+  </style>
 </head>
 <body>
 
-<div class="sidebar">
-  <h3><i class="fa-solid fa-university"></i> University Panel</h3>
-  <hr>
-
-  <a class="active" href="dashboard.php"><i class="fa-solid fa-house"></i> Dashboard</a>
-  <a href="students.php"><i class="fa-solid fa-users"></i> Students List</a>
-  <a href="logout.php" style="background:red;"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+<div class="top">
+  <a class="btn logout" href="logout.php">Logout</a>
+  <h2>University Dashboard (<?php echo $uni_code; ?>)</h2>
+  <span></span>
 </div>
 
-<div class="main-content">
+<div class="grid">
+  <div class="card"><h3>Total Students</h3><p><?php echo $total; ?></p></div>
+  <div class="card"><h3>Running Students</h3><p><?php echo $running; ?></p></div>
+  <div class="card"><h3>Completed Students</h3><p><?php echo $completed; ?></p></div>
+</div>
 
-  <div class="topbar">
-    <h4>University Dashboard</h4>
-    <span class="profile-badge"><?php echo $uni_code; ?></span>
-  </div>
-
-  <div class="row g-4 mt-3">
-
-    <div class="col-md-4">
-      <div class="card-box text-center">
-        <h5>Total Students</h5>
-        <p class="big-number"><?php echo $total; ?></p>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="card-box text-center">
-        <h5>Running Students</h5>
-        <p class="big-number"><?php echo $running; ?></p>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="card-box text-center">
-        <h5>Completed Students</h5>
-        <p class="big-number"><?php echo $completed; ?></p>
-      </div>
-    </div>
-
-  </div>
-
+<div class="menu">
+  <a class="blue" href="students.php">View Students</a>
 </div>
 
 </body>
