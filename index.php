@@ -212,7 +212,7 @@
       <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
         <div class="card card-premium p-4">
           <p>"Franchise support and student portal is very premium."</p>
-          <h6 class="fw-bold mt-3">⭐ Amit Verma</h6>
+          <h6 class="fw-bold mt-3">⭐ Amit Kumar Mandal</h6>
         </div>
       </div>
     </div>
