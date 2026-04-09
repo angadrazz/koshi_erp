@@ -147,6 +147,17 @@ body{
   <div>
     <h1>Join Our Franchise</h1>
     <p>Grow your institute with us 🚀</p>
+
+    <marquee behavior="scroll" direction="up" height="140" scrollamount="3">
+      <p>✅ Low Investment Franchise</p>
+      <p>🚀 High Income Opportunity</p>
+      <p>🎓 Full Training Support</p>
+      <p>🏆 Certificate & Branding</p>
+      <p>🤝 Lifetime Support</p>
+      <hr>
+      </marquee> <hr>
+    <p><b>📞 Helpline / Support:</b> 9431496862 / 9122552662</p>
+    <p><b>📞 Email:</b> franchise@koshiinstitute.in</p>
   </div>
 </div>
 
