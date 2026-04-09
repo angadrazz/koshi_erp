@@ -8,6 +8,7 @@ if(isset($_POST['apply'])){
   $fid = "FRAN".date("Y").rand(1000,9999);
 
   $name=$_POST['name'];
+  $institute_reg_id=$_POST['institute_reg_id'];
   $mobile=$_POST['mobile'];
   $email=$_POST['email'];
   $city=$_POST['city'];
@@ -19,13 +20,24 @@ if(isset($_POST['apply'])){
 
   $pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-  $sql="INSERT INTO franchise(franchise_id,name,mobile,email,city,district,state,space,investment,message,password,status)
-  VALUES('$fid','$name','$mobile','$email','$city','$district','$state','$space','$investment','$message','$pass','Pending')";
+  // PDF Upload
+  $pdf = $_FILES['pdf']['name'];
+  $tmp = $_FILES['pdf']['tmp_name'];
+  move_uploaded_file($tmp, "../uploads/".$pdf);
 
-  if($conn->query($sql)===TRUE){
-    $msg="Application Submitted! Your Franchise ID: ".$fid;
+  $sql="INSERT INTO franchise(
+  franchise_id,institute_reg_id,name,mobile,email,city,district,state,
+  space,investment,message,password,pdf,status
+  )
+  VALUES(
+  '$fid','$institute_reg_id','$name','$mobile','$email','$city','$district','$state',
+  '$space','$investment','$message','$pass','$pdf','Pending'
+  )";
+
+  if($conn->query($sql)){
+    $msg="🎉 Application Submitted! ID: ".$fid;
   } else {
-    $msg="Error: ".$conn->error;
+    $msg="❌ Error: ".$conn->error;
   }
 }
 ?>
@@ -33,40 +45,186 @@ if(isset($_POST['apply'])){
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Franchise Registration</title>
-  <style>
-    body{font-family:Arial;background:#f2f7ff;padding:20px;}
-    .box{max-width:750px;margin:auto;background:white;padding:25px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,0.12);}
-    h2{text-align:center;color:#0b5cff;}
-    input,textarea{width:100%;padding:12px;margin-top:10px;border-radius:10px;border:1px solid #ccc;}
-    button{width:100%;padding:12px;margin-top:15px;background:green;color:white;font-weight:bold;border:none;border-radius:12px;}
-    .msg{text-align:center;font-weight:bold;margin-top:12px;color:green;}
-  </style>
+<title>Franchise Registration</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+body{
+  background:#0f172a;
+  font-family:'Poppins',sans-serif;
+  color:white;
+}
+
+.main{
+  display:flex;
+  min-height:100vh;
+}
+
+/* LEFT SIDE */
+.left{
+  width:40%;
+  background:linear-gradient(135deg,#00c6ff,#0072ff);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
+}
+
+.left h1{
+  font-size:35px;
+  font-weight:bold;
+}
+
+/* RIGHT SIDE */
+.right{
+  width:60%;
+  padding:40px;
+}
+
+/* NEUMORPHIC INPUT */
+.input-box{
+  margin-bottom:15px;
+}
+
+.input-box input,
+.input-box textarea{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:12px;
+  background:#1e293b;
+  color:white;
+  box-shadow:inset 5px 5px 10px #0b1220,
+             inset -5px -5px 10px #2a3a5a;
+}
+
+.input-box input:focus{
+  outline:none;
+  box-shadow:0 0 10px #00c6ff;
+}
+
+/* DRAG DROP */
+.upload-box{
+  border:2px dashed #00c6ff;
+  padding:20px;
+  text-align:center;
+  border-radius:12px;
+  cursor:pointer;
+}
+
+.upload-box:hover{
+  background:#1e293b;
+}
+
+/* BUTTON */
+.btn-submit{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(45deg,#00c6ff,#0072ff);
+  font-weight:bold;
+  color:white;
+}
+
+.msg{
+  margin-bottom:10px;
+  font-weight:bold;
+}
+
+</style>
 </head>
+
 <body>
 
-<div class="box">
-  <h2>Franchise Application Form</h2>
+<div class="main">
 
-  <?php if($msg!=""){ echo "<p class='msg'>$msg</p>"; } ?>
+<!-- LEFT DESIGN -->
+<div class="left">
+  <div>
+    <h1>Join Our Franchise</h1>
+    <p>Grow your institute with us 🚀</p>
+  </div>
+</div>
 
-  <form method="POST">
-    <input type="text" name="name" placeholder="Full Name / Center Name" required>
-    <input type="text" name="mobile" placeholder="Mobile Number" required>
-    <input type="email" name="email" placeholder="Email (optional)">
-    <input type="text" name="city" placeholder="City" required>
-    <input type="text" name="district" placeholder="District" required>
-    <input type="text" name="state" placeholder="State" required>
+<!-- RIGHT FORM -->
+<div class="right">
 
-    <input type="text" name="space" placeholder="Space Available (Example: 500 Sqft)" required>
-    <input type="text" name="investment" placeholder="Investment Capacity (Example: 1 Lakh)" required>
+<h3>Franchise Form</h3>
 
-    <textarea name="message" placeholder="Message / Experience"></textarea>
+<?php if($msg!=""){ echo "<div class='msg'>$msg</div>"; } ?>
 
-    <input type="password" name="password" placeholder="Set Password" required>
+<form method="POST" enctype="multipart/form-data">
 
-    <button type="submit" name="apply">Submit Franchise Application</button>
-  </form>
+<div class="input-box">
+<input type="text" name="name" placeholder="Full Name / Center Name" required>
+</div>
+
+<div class="input-box">
+<input type="text" name="institute_reg_id" placeholder="Institute Registration ID" required>
+</div>
+
+<div class="input-box">
+<input type="text" name="mobile" placeholder="Mobile Number" required>
+</div>
+
+<div class="input-box">
+<input type="email" name="email" placeholder="Email">
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="input-box">
+      <input type="text" name="city" placeholder="City">
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="input-box">
+      <input type="text" name="district" placeholder="District">
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="input-box">
+      <input type="text" name="state" placeholder="State">
+    </div>
+  </div>
+</div>
+
+<div class="input-box">
+<input type="text" name="space" placeholder="Space Available">
+</div>
+
+<div class="input-box">
+<input type="text" name="investment" placeholder="Investment Capacity">
+</div>
+
+<div class="input-box">
+<textarea name="message" placeholder="Message"></textarea>
+</div>
+
+<div class="input-box">
+<input type="password" name="password" placeholder="Password">
+</div>
+
+<!-- PDF Upload -->
+<div class="upload-box" onclick="document.getElementById('pdf').click()">
+  📄 Upload Institute Document (PDF)
+  <input type="file" name="pdf" id="pdf" accept="application/pdf" hidden required>
+</div>
+
+<br>
+
+<button type="submit" name="apply" class="btn-submit">
+  🚀 Submit Application
+</button>
+
+</form>
+
+</div>
+
 </div>
 
 </body>
