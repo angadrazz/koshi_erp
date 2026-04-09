@@ -5,26 +5,32 @@ include("../db.php");
 $msg="";
 
 if(isset($_POST['login'])){
-  $username = $_POST['username'];
+
+  $username = mysqli_real_escape_string($conn,$_POST['username']);
   $password = $_POST['password'];
 
   $res = $conn->query("SELECT * FROM users WHERE username='$username' AND role='admin' AND status='Active'");
 
   if($res->num_rows > 0){
+
     $row = $res->fetch_assoc();
 
     if(password_verify($password, $row['password'])){
+
       $_SESSION['admin'] = $row['username'];
       header("Location: dashboard.php");
       exit();
+
     } else {
       $msg="Wrong Password!";
     }
+
   } else {
-    $msg="Invalid Admin Username!";
+    $msg="Admin User Not Found!";
   }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html>
