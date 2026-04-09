@@ -144,7 +144,7 @@
         <div class="card card-premium p-4">
           <h4 class="fw-bold">Computer Courses</h4>
           <p class="text-muted">ADCA, DCA, Tally, CCC, Programming</p>
-          <a href="course_page.php?cat=Computer" class="btn btn-primary">Explore</a>
+          <a href="../course/course_page.php" class="btn btn-primary">Explore</a>
         </div>
       </div>
 
@@ -152,7 +152,7 @@
         <div class="card card-premium p-4">
           <h4 class="fw-bold">Vocational Courses</h4>
           <p class="text-muted">Skill Development, Training Programs</p>
-          <a href="course_page.php?cat=Vocational" class="btn btn-success">Explore</a>
+          <a href="../course.php" class="btn btn-success">Explore</a>
         </div>
       </div>
 
