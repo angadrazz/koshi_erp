@@ -33,19 +33,96 @@
     </button>
 
     <div class="collapse navbar-collapse" id="menu">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
-        <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
-        <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+  <ul class="navbar-nav ms-auto">
 
-        <li class="nav-item">
-          <a class="btn btn-warning ms-2 fw-bold" href="./franchise/register.php">
-            Apply Franchise
-          </a>
-        </li>
+    <!-- About Us -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+        About Us
+      </a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#about">About Koshi Institute</a></li>
+        <li><a class="dropdown-item" href="#accreditation">Accreditation & Recognition</a></li>
       </ul>
-    </div>
+    </li>
+
+    <!-- Courses -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+        Courses
+      </a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Computer Courses</a></li>
+        <li><a class="dropdown-item" href="#">Financial Courses</a></li>
+        <li><a class="dropdown-item" href="#">Hardware & Networking Courses</a></li>
+        <li><a class="dropdown-item" href="#">Multimedia & Graphics Courses</a></li>
+        <li><a class="dropdown-item" href="#">Teacher Training Courses</a></li>
+        <li><a class="dropdown-item" href="#">Schooledge Vocational & Skill Development Courses</a></li>
+        <li><a class="dropdown-item" href="#">Corporate Training</a></li>
+        <li><a class="dropdown-item" href="#">UGC & NCSE</a></li>
+      </ul>
+    </li>
+
+    <!-- IT Services -->
+  <li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle fw-bold text-primary" href="#" data-bs-toggle="dropdown">
+    IT Services
+  </a>
+  <ul class="dropdown-menu shadow">
+    <li><a class="dropdown-item" href="#">💼 Income Tax Return (ITR Filing)</a></li>
+    <li><a class="dropdown-item" href="#">📑 GST Registration</a></li>
+    <li><a class="dropdown-item" href="#">🧾 GST Filing</a></li>
+
+    <li><hr class="dropdown-divider"></li>
+
+    <li><a class="dropdown-item" href="#">🪪 PAN Card Services</a></li>
+    <li><a class="dropdown-item" href="#">🔗 Aadhar-PAN Link</a></li>
+  </ul>
+</li>
+
+    <!-- Franchise -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+        Franchise
+      </a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Search Authorised Study Center</a></li>
+        <li><a class="dropdown-item" href="#">Advantages of Franchise Registration</a></li>
+        <li><a class="dropdown-item" href="./franchise/register.php">Apply For Franchise</a></li>
+        <li><a class="dropdown-item" href="#">Apply For Kids Zone</a></li>
+        <li><a class="dropdown-item" href="#">Apply For School</a></li>
+      </ul>
+    </li>
+
+    <!-- Student Zone -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+        Student Zone
+      </a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Student Verification</a></li>
+        <li><a class="dropdown-item" href="#">Student Marksheet</a></li>
+        <li><a class="dropdown-item" href="#">I-Card</a></li>
+        <li><a class="dropdown-item" href="#">Download Admission Form</a></li>
+        <li><a class="dropdown-item" href="#">Student Enquiry</a></li>
+        <li><a class="dropdown-item" href="#">Prospectus</a></li>
+      </ul>
+    </li>
+
+    <!-- Other Links -->
+    <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+    <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+
+    <!-- Button -->
+    <li class="nav-item">
+      <a class="btn btn-warning ms-2 fw-bold" href="./franchise/register.php">
+        Apply Franchise
+      </a>
+    </li>
+
+  </ul>
+</div>
   </div>
 </nav>
 
