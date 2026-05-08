@@ -10,7 +10,7 @@ if(isset($_POST['login'])){
   $password = $_POST['password'];
 
   $res = $conn->query("SELECT * FROM users WHERE username='$username' AND password='$password'");
-
+  print_r($res);exit;
   if($res->num_rows > 0){
 
     $row = $res->fetch_assoc();
@@ -56,6 +56,8 @@ if(isset($_POST['login'])){
   } else {
     $msg="Invalid Username or Password!";
   }
+}else{
+  print_r('No Post Method');exit;
 }
 ?>
 

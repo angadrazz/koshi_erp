@@ -1,6 +1,10 @@
 <?php
 session_start();
 include("../db.php");
+//  DUMMY adming password generate 
+// $password_in_text = "admin123";
+// $hashed_password = password_hash($password_in_text, PASSWORD_DEFAULT);
+// print_r($hashed_password);exit; 
 
 $msg="";
 
@@ -10,7 +14,7 @@ if(isset($_POST['login'])){
   $password = $_POST['password'];
 
   $res = $conn->query("SELECT * FROM users WHERE username='$username' AND role='admin' AND status='Active'");
-
+  // print_r($res);exit;e
   if($res->num_rows > 0){
 
     $row = $res->fetch_assoc();
