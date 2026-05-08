@@ -100,12 +100,12 @@
         Student Zone
       </a>
       <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Student Verification</a></li>
-        <li><a class="dropdown-item" href="#">Student Marksheet</a></li>
-        <li><a class="dropdown-item" href="#">I-Card</a></li>
-        <li><a class="dropdown-item" href="#">Download Admission Form</a></li>
-        <li><a class="dropdown-item" href="#">Student Enquiry</a></li>
-        <li><a class="dropdown-item" href="#">Prospectus</a></li>
+        <li><a class="dropdown-item" href="verify.php">Student Verification</a></li>
+        <li><a class="dropdown-item" href="student/marksheet.php">Student Marksheet</a></li>
+        <li><a class="dropdown-item" href="student/icard.php">I-Card</a></li>
+        <li><a class="dropdown-item" href="student/admission_form.php">Download Admission Form</a></li>
+        <li><a class="dropdown-item" href="student/enquiry.php">Student Enquiry</a></li>
+        <li><a class="dropdown-item" href="student/prospectus.php">Prospectus</a></li>
       </ul>
     </li>
 
